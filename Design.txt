@@ -1,0 +1,33 @@
+1) Functions that could have been moved to more than one class: 
+
+wintinBounds() goes into WorldModel: The class is taking care of what goes inside the virtual world.
+isOccupied() goes into WorldModel: The class is taking care of the layout of the virtual world.
+
+transformFull() goes into Entity: The class is taking care of the action that caracterize all the entities.
+transfromNotFull() goes into Entity: The class is taking care of the action that caracterize all the entities.
+
+nextPositionCrab() goes into Action : The class is taking care of some actions that are specific to some various (not all of them) entities. 
+nextPositionOcto() goes into Action : The class is taking care of some actions that are specific to some various (not all of them) entities.
+
+createAnimationAction() goes into Entiy: This method is taking care of the animation of all the entities when it is the right time to do so. 
+createActivityAction() goes into Entity: This method is taking care of creating the action required for each entity.
+
+moveToFull() goes into Action: This class is taking care of some specific behavior of certain entities.
+The same appplies for moveToNotFull() method. 
+
+All the parse methods were put inside the WorldModel class since it is the class that keeps track of our data and we know that parse methods turn images into objects, and therefore data. 
+
+ALL the schedule and execute methods were implemented inside the EventSchedule class since these methods help us execute the game and therefore control our virtual world which was the described behavio of the class. 
+
+2) Functions that have not been moved from the Functions class:
+
+- These two functions only have primitive data types as args, I feel like there is no reason to refactor them into an object. 	
+
+public static void setAlpha(PImage img, int maskColor, int alpha)
+public static int clamp(int value, int low, int high)
+
+
+- I would keep these two functions in the Function class as static since there are no attribute calls for any Object used.  
+
+public static void load(Scanner in, WorldModel world, ImageStore imageStore)
+private static boolean processLine(String line, WorldModel world, ImageStore imageStore)
